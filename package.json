@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This is the description of the **Posty** web application developed by **Aditya Tripathi**.",
   "main": "BACKEND/index.js",
+  "type": "module",
   "scripts": {
     "test": "nodemon BACKEND/index.js"
   },
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/AddyKoder/PostIT#readme",
   "dependencies": {
     "express": "^4.18.1",
-    "mongoose": "^6.3.4"
+    "mongoose": "^6.3.4",
+    "pug": "^3.0.2"
   }
 }

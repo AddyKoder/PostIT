@@ -1,0 +1,23 @@
+{
+  "name": "posty",
+  "version": "1.0.0",
+  "description": "This is the description of the **Posty** web application developed by **Aditya Tripathi**.",
+  "main": "BACKEND/index.js",
+  "scripts": {
+    "test": "nodemon BACKEND/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AddyKoder/PostIT.git"
+  },
+  "author": "Aditya Tripathi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AddyKoder/PostIT/issues"
+  },
+  "homepage": "https://github.com/AddyKoder/PostIT#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.3.4"
+  }
+}

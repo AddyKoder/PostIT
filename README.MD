@@ -1,3 +1,3 @@
 # Post IT
 
-This is the description of the **PostIT** web application developed by **Aditya Tripathi**.
+This is the description of the **Posty** web application developed by **Aditya Tripathi**.

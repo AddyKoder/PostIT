@@ -29,6 +29,8 @@ body{
 	justify-content: space-around;
 	align-items: center;
 	min-height: 100vh;
+
+	padding:35px 20px;
 }
 
 #login-form{
@@ -72,6 +74,23 @@ p{
 	border: none;
 	border-bottom: 2px solid #cacdf1a4;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus{
+	-webkit-text-fill-color: #e7e9ff;
+	box-shadow: 0 0 0px 1000px #7175ee inset;
+	-webkit-box-shadow: 0 0 0px 1000px #7175ee inset;
+	border:none;
+	border-bottom: 2px solid #cacdf1a4;
+}
+
 .input-fields::placeholder{
 	color:white;
 	opacity: 30%;
@@ -101,6 +120,7 @@ input[type="submit"]:hover, input[type="submit"]:focus{
 @media only screen and (max-width: 900px){
 	#center{
 		flex-direction: column;
+		min-height: 70vh;
 	}
 	#login-form{
 		padding: 20px;

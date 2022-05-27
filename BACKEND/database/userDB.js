@@ -1,3 +1,4 @@
+import {postSchema} from './postDB.js';
 import mongoose from 'mongoose';
 const params = {
 	useNewUrlParser: true,
@@ -6,7 +7,17 @@ const params = {
 
 mongoose.connect('mongodb://localhost:27017/posty', params);
 
-import { user } from './userSchema.js';
+
+export const userSchema = mongoose.Schema({
+	name: {type: String, required: true},
+	mail: {type: String, required: true},
+	username: {type: String, required: true},
+	password: {type: String, required: true},
+	notes: [{type:mongoose.Schema.Types.ObjectId, ref: 'userSchema', default:[]}]
+
+});
+let user= mongoose.model('users', userSchema);
+
 
 export async function createUser(name, mail, username, pwd) {
 

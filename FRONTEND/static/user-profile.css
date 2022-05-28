@@ -43,6 +43,10 @@ header{
 	font-weight: 700;
 	border-radius: 10px;
 }
+#create-post-button:hover{
+	cursor:pointer;
+	opacity: 70%;
+}
 #user-profile-button{
 	font-size:clamp(.2em, 4vw, 1.5em) ;
 

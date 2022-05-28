@@ -13,7 +13,7 @@ export const userSchema = mongoose.Schema({
 	mail: { type: String, required: true },
 	username: { type: String, required: true },
 	password: { type: String, required: true },
-	posts: {type: [String], default:[]},
+	posts: { type: [String], default: [] },
 });
 let user = mongoose.model('users', userSchema);
 
@@ -71,4 +71,3 @@ export async function add_post(info, userpost) {
 	}
 	return 0;
 }
-

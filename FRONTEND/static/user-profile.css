@@ -91,8 +91,8 @@ hr{
 	background-color: #7175ee;
 	box-shadow: #050a42 4px 4px 20px 0.2px;
 
-	max-width: 250px;
-	max-height: 250px;
+	width: 200px;
+	height: 200px;
 	flex-direction: column;
 	border-radius: 7px;
 	text-align: left;
@@ -105,4 +105,8 @@ hr{
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+}
+
+.post-description{
+	opacity: 70%;
 }

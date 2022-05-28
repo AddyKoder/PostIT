@@ -46,7 +46,7 @@ async function add_event_listeners() {
 				},
 			});
 
-			if (await response.text() == 'ok') {
+			if ((await response.text()) == 'ok') {
 				document.location.href = '/profile';
 			}
 		}

@@ -18,10 +18,19 @@ export const postSchema = mongoose.Schema({
 let post = mongoose.model('posts', postSchema);
 
 export async function add_post(userpost, userID) {
-	if (await post.findOne({ title: userpost.title }) == null) {		
+	if ((await post.findOne({ title: userpost.title })) == null) {
 		let newpost = new post({ title: userpost.title, content: userpost.content, author: userID });
-		await newpost.save().catch(err => { console.log('err'); return 0; });
+		await newpost.save().catch(err => {
+			console.log('err');
+			return 0;
+		});
 		return newpost.id;
 	}
+	return 0;
+}
+
+export async function get_post(postID) {
+	let data = await post.findOne({ _id: postID });
+	if (data) return data;
 	return 0;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,25 +10,28 @@
 	<link rel="stylesheet" href="./static/add-post.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+
 <body>
 	<div class="center">
 		<header>
 			<div id="logo">Posty</div>
 			<div id="create-post-button"><i style="font-size: clamp(1rem,5vw,2rem);">Create Post</i>
 			</div>
-			<div id="user-profile-button" style="display:flex;align-items:center;justify-content:center"><span id="username-logo">
-				user
-			</span> <i
-					class="material-icons" style="font-size: 2em;">portrait</i></div>
+			<div id="user-profile-button" style="display:flex;align-items:center;justify-content:center"><span
+					id="username-logo">
+					user
+				</span> <i class="material-icons" style="font-size: 2em;">portrait</i></div>
 		</header>
 	</div>
 
 	<div id="form" spellcheck="false">
-		<input class = "input-fields" type="text" name="title" id="title" placeholder="Post Title" style="font-weight: 900;">
-		
-		<textarea class = "input-fields" name="content" id="content" placeholder="Your Post ..."></textarea>
-		<input class = "input-fields" type="submit" value="Publish Post" id="publish-button">
+		<input class="input-fields" type="text" name="title" id="title" placeholder="Post Title"
+			style="font-weight: 900;">
+
+		<textarea class="input-fields" name="content" id="content" placeholder="Your Post ..."></textarea>
+		<input class="input-fields" type="submit" value="Publish Post" id="publish-button">
 	</div>
 </body>
 <script src="/add-post.js"></script>
+
 </html>

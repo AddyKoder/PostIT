@@ -7,12 +7,14 @@ import express from 'express';
 export const router = express();
 
 import * as user from './database/userDB.js';
+import * as post from './database/postDB.js';
 
 const urlencoded = express.urlencoded({ extended: true });
 let jsonparser = express.json();
 import cparser from 'cookie-parser';
 router.use(cparser());
-
+router.set('view engine', 'pug');
+router.set('views', p.join(__dirname, '../FRONTEND/'));
 // static pages serving
 
 router.get('/', (req, res) => {
@@ -60,19 +62,10 @@ router.get('/add-post', (req, res) => {
 
 // endpoints for the backend
 router.post('/signup', urlencoded, async (req, res) => {
-	if (
-		!(await user.verify_user_data(
-			req.body.name,
-			req.body.mail,
-			req.body.uername,
-			req.body.password,
-			req.body.confirm_password
-		))
-	) {
+	if (!(await user.verify_user_data(req.body.name, req.body.mail, req.body.uername, req.body.password, req.body.confirm_password))) {
 		res.render('error', {
 			title: 'Incorrect Information',
-			description:
-				'Due to a client side error the server is projected with falsy information. \n Try again, if problem continues, then contact our help team at help@posty.com',
+			description: 'Due to a client side error the server is projected with falsy information. \n Try again, if problem continues, then contact our help team at help@posty.com',
 		});
 		return false;
 	}
@@ -117,8 +110,7 @@ router.get('/get_user_info', async (req, res) => {
 	}
 });
 
-router.post('/add-post',jsonparser, async (req, res) => {
-	
+router.post('/add-post', jsonparser, async (req, res) => {
 	let data = req.body;
 	let info = data.username_mail;
 	let pwd = data.pwd;
@@ -132,6 +124,20 @@ router.post('/add-post',jsonparser, async (req, res) => {
 				return;
 			}
 		}
+	}
+	res.send('error');
+});
+
+router.get('/get-post', async (req, res) => {
+	let postID = req.query.id;
+	if (!postID) {
+		res.send('error');
+		return;
+	}
+	let data = await post.get_post(postID);
+	if (data) {
+		res.send(JSON.stringify(data));
+		return;
 	}
 	res.send('error');
 });

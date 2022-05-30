@@ -46,7 +46,7 @@ async function plot_info() {
 
 		let post = await JSON.parse(post_string);
 
-		html_content += `<div class="post-card" id="${post.title}">
+		html_content += `<div class="post-card" id="${post._id}">
 		<div class="user-info" style="display:flex;align-items:center;margin-bottom:15px;">
 			<i class="material-icons" style="font-size:clamp(1.5rem, 15vw, 2rem);">portrait</i>
 		</div>
@@ -57,17 +57,17 @@ async function plot_info() {
 	}
 
 	document.getElementById('posts').innerHTML = html_content;
+	add_event_listeners(posts);
 }
 
-function add_event_listeners() {
+function add_event_listeners(posts) {
 	document.getElementById('create-post-button').onclick = () => {
 		document.location.href = '/add-post';
 	};
+	for (let i of posts) {
+		document.getElementById(`${i}`).onclick = () => {document.location.href = `/posts/${i}`;};
+	}
 }
-
-
 
 check_logins();
 plot_info();
-add_event_listeners();
-

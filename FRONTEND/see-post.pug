@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Posty</title>
+	<link rel="stylesheet" href="/add-post.css">
+	<link rel="stylesheet" href="./static/add-post.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+	<div class="center">
+		<header>
+			<div id="logo">Posty</div>
+			<div id="create-post-button"><i style="font-size: clamp(1rem,5vw,2rem);">by @#{author}</i>
+			</div>
+			<div id="user-profile-button" style="display:flex;align-items:center;justify-content:center"><span id="username-logo">
+					
+				</span> <i class="material-icons" style="font-size: 2em;">portrait</i></div>
+		</header>
+	</div>
+
+	<div id="form" spellcheck="false">
+		<div class="input-fields" id="title" style="font-weight: 900;text-align: left;"> #{title}</div>
+
+		<div class="input-fields" id="content" style="text-align: left;"> #{content}</div>
+	</div>
+</body>
+<script src="/add-post.js"></script>
+
+</html>

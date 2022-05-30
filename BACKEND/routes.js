@@ -158,6 +158,16 @@ router.get('/user/:username', async (req, res) => {
 		});
 });
 
-router.get('/all-posts', async (req, res) =>{
+router.get('/all-posts', async (req, res) => {
 	res.send(JSON.stringify(await post.get_all_post_ids()));
+});
+
+router.get('/posts/:id', async (req, res) => {
+	let post_data = await post.get_post(req.params.id);
+	let user_data = await user.get_user(post_data.author);
+	if (post_data) res.render('see-post', { author: user_data.username, title: post_data.title, content: post_data.content });
+	else res.render('error', {
+		title: 'No such post in our database',
+		description: 'The post you are trying to find is not available in our database, Please recheck the location or contact our help mail',
+	});
 });

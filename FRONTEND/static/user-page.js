@@ -53,17 +53,22 @@ async function plot_info() {
 		let post = await fetch(`../../get-post?id=${i}`);
 		let post_string = await post.text();
 		post = await JSON.parse(post_string);
-		html_content += `<div class="post-card" id="${post.title}">
+		html_content += `<div class="post-card" id="${post._id}">
 		<div class="user-info" style="display:flex;align-items:center;margin-bottom:15px;">
 			<i class="material-icons" style="font-size:clamp(1.5rem, 15vw, 2rem);">portrait</i>
 		</div>
 	
-		<div class="post-title" style="font-size:clamp(1rem, 10vw, 2rem); margin-bottom: 5px;">${post.title}</div>
-		<div class="post-description" style="font-size:clamp(0.5rem, 5vw, 1rem);">${post.content.slice(0, 130) + '...'}</div>
+		<div class="post-title" style="font-size:clamp(1rem, 10vw, 2rem); margin-bottom: 5px;">${post.title.slice(0,10)}</div>
+		<div class="post-description" style="font-size:clamp(0.5rem, 5vw, 1rem);">${post.content.slice(0, 90) + '...'}</div>
 	</div>`;
 	}
 	document.getElementById('posts').innerHTML = html_content;
+	add_event_listeners(data.posts)
 }
-
+function add_event_listeners(posts) {
+	for (let i of posts) {
+		document.getElementById(`${i}`).onclick = () => {document.location.href = `/posts/${i}`;};
+	}
+}
 // check_logins();
 plot_info();

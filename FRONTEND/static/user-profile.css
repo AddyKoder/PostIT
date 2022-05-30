@@ -115,3 +115,7 @@ hr{
 	cursor: pointer;
 	opacity: 50%;
 }
+
+.post-title:hover, .post-description:hover{
+	cursor: pointer;
+}

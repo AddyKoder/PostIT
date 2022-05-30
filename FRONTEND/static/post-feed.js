@@ -37,12 +37,12 @@ async function place_feed(feeds) {
 			${i.author}
 		</div> 
 	
-		<div class="post-title" style="font-size:clamp(1rem, 10vw, 2rem); margin-bottom: 5px;">${post.title.slice(0, 10)}</div>
-		<div class="post-description" style="font-size:clamp(0.5rem, 5vw, 1rem);">${post.content.slice(0, 90) + '...'}</div>
+		<div  class="post-title ${post._id}" style="font-size:clamp(1rem, 10vw, 2rem); margin-bottom: 5px;">${post.title.slice(0, 10)}</div>
+		<div class="post-description ${post._id}" style="font-size:clamp(0.5rem, 5vw, 1rem);">${post.content.slice(0, 90) + '...'}</div>
 	</div>`;
 	}
 	document.getElementById('posts').innerHTML = html_content;
-	
+	add_event_listeners(feeds);
 }
 
 async function plot_feed() {
@@ -55,6 +55,16 @@ async function plot_feed() {
 document.getElementById('create-post-button').onclick = () => {
 	document.location.href = '/add-post';
 };
+
+function add_event_listeners(posts) {
+	for (let i of posts) {
+		for (let x of document.getElementsByClassName(`${i._id}`)) {
+			x.onclick = () => {
+				document.location.href = `/posts/${i._id}`;
+			};
+		}
+	}
+}
 
 plot_info();
 plot_feed();

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Posty User</title>
+	<link rel="stylesheet" href="../user-profile.css" />
+	<link rel="stylesheet" href="static/user-profile.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body id="cre">
+	<div style="display: none" id="to_find_username">#{username}</div>
+	<div class="center">
+		<header>
+			<div id="logo">Posty</div>
+			<div id="create-post-button"></div>
+			<div id="user-profile-button" style="display: flex; align-items: center;justify-content: center" onclick="">
+				<span id="username-logo"> Login </span>
+				<i class="material-icons" style="font-size: 2em">portrait</i>
+			</div>
+		</header>
+	</div>
+
+	<div id="profile">
+		<i class="material-icons" style="font-size: clamp(10rem, 25vw, 20rem); color: #e7e9ff">portrait</i>
+		<div id="profile-info">
+			<h2 id="username"></h2>
+			<h3 id="usermail"></h3>
+			<h3 id="nameofuser"></h3>
+		</div>
+	</div>
+	<hr />
+	<div id="post-section">
+		<span style="opacity: 60%; font-size: clamp(1.5rem, 5vw, 2rem)">Posts by #{username}</span>
+
+		<div id="posts"></div>
+	</div>
+</body>
+<script src="../user-page.js"></script>
+
+</html>

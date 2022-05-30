@@ -110,3 +110,8 @@ hr{
 .post-description{
 	opacity: 70%;
 }
+
+.user-info:hover{
+	cursor: pointer;
+	opacity: 50%;
+}

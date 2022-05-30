@@ -52,16 +52,21 @@ export async function verify_login(info, pwd) {
 	return false;
 }
 
-export async function get_user_info(info) {
+export async function get_user_info(info, pwd='false') {
 	let with_mail = await user.findOne({ mail: info });
 	let with_username = await user.findOne({ username: info });
 
-	if (with_mail != null) return with_mail;
-	else return with_username;
+	if (with_mail != null) {
+		if (!pwd) with_mail.password = null;
+		return with_mail;
+	} else if (with_username != null) {
+		if (!pwd) with_username.password = null;
+		return with_username;
+	} else return false;
 }
 
 export async function add_post(info, userpost) {
-	let user_data = await get_user_info(info);
+	let user_data = await get_user_info(info, true);
 	let postID = await post.add_post(userpost, user_data.id);
 
 	if (postID) {
@@ -69,5 +74,11 @@ export async function add_post(info, userpost) {
 		await user_data.save();
 		return 'ok';
 	}
+	return 0;
+}
+
+export async function get_user(userID) {
+	let data = await user.findOne({ _id: userID });
+	if (data) return data;
 	return 0;
 }

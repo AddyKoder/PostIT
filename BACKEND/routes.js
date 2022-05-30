@@ -21,6 +21,10 @@ router.get('/', (req, res) => {
 	res.redirect('/login');
 });
 
+router.get('/feed', (req, res) => {
+	res.sendFile(p.join(__dirname, '../FRONTEND/post-feed.html'));
+});
+
 router.get('/login', urlencoded, async (req, res) => {
 	if ((req.cookies.username_mail, req.cookies.pwd)) {
 		let username_mail = req.cookies.username_mail;
@@ -102,12 +106,13 @@ router.get('/verify_login', async (req, res) => {
 
 router.get('/get_user_info', async (req, res) => {
 	let info = req.query.info;
-	let pwd = req.query.pwd;
-	if (info && pwd) {
-		if (await user.verify_login(info, pwd)) {
-			res.send(JSON.stringify(await user.get_user_info(info)));
-		}
+
+	if (info) {
+		let user_info = await user.get_user_info(info);
+		if (user_info) res.send(JSON.stringify(user_info));
+		return;
 	}
+	res.send('false');
 });
 
 router.post('/add-post', jsonparser, async (req, res) => {
@@ -140,4 +145,19 @@ router.get('/get-post', async (req, res) => {
 		return;
 	}
 	res.send('error');
+});
+
+router.get('/user/:username', async (req, res) => {
+	let user_data = await user.get_user_info(req.params.username);
+	if (user_data) {
+		res.render('user-page', { username: user_data.username });
+	} else
+		res.render('error', {
+			title: 'User not found',
+			description: 'The user you are trying to find is not available in our database, Please recheck the username or contact our help mail',
+		});
+});
+
+router.get('/all-posts', async (req, res) =>{
+	res.send(JSON.stringify(await post.get_all_post_ids()));
 });

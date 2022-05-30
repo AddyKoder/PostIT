@@ -15,29 +15,21 @@
 <body id="cre">
 	<div class="center">
 		<header>
-			<div id="logo" onclick="document.location.href='/feed'">Posty</div>
+			<div id="logo">Posty</div>
 			<div id="create-post-button"><i class="material-icons" style="font-size: clamp(1rem,10vw,3rem);">add</i>
 			</div>
 			<div id="user-profile-button" style="display:flex;align-items:center;justify-content:center" onclick=""><span
 					id="username-logo">
-					user
+					login
 				</span> <i class="material-icons" style="font-size: 2em;">portrait</i></div>
 		</header>
 
 	</div>
 
-	<div id="profile">
-		<i class="material-icons" style="font-size:clamp(10rem, 25vw, 20rem);;color:#e7e9ff">portrait</i>
-		<div id="profile-info">
-			<h2 id="username">User Name</h2>
-			<h3 id="usermail">Email address</h3>
-			<h3 id="nameofuser">Name of the User</h3>
-		</div>
-	</div>
-	<hr>
 	<div id="post-section">
 
-		<span style="opacity: 60%; font-size:clamp(1.5rem, 5vw, 2rem);">Your Posts</span>
+		<span style="opacity: 60%; font-size:clamp(1.5rem, 5vw, 2rem);margin-top: clamp(1rem, 15px, 20px);">Your Feed</span>
+		<hr>
 
 		<div id="posts">
 
@@ -48,7 +40,5 @@
 	</div>
 
 </body>
-<script src="static/user-profile.js"></script>
-<script src="user-profile.js"></script>
-
+<script src="post-feed.js"></script>
 </html>

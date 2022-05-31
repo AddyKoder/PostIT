@@ -14,12 +14,10 @@
 <body>
 	<div class="center">
 		<header>
-			<div id="logo">Posty</div>
+			<div id="logo" onclick="document.location.href='/feed'">Posty</div>
 			<div id="create-post-button"><i style="font-size: clamp(1rem,5vw,2rem);">by @#{author}</i>
 			</div>
-			<div id="user-profile-button" style="display:flex;align-items:center;justify-content:center"><span id="username-logo">
-					
-				</span> <i class="material-icons" style="font-size: 2em;">portrait</i></div>
+			<div id="user-profile-button" style="display:flex;align-items:center;justify-content:center" onclick="document.location.href='/login'"><span id="username-logo" >login</span> <i class="material-icons" style="font-size: 2em;">portrait</i></div>
 		</header>
 	</div>
 
@@ -29,6 +27,5 @@
 		<div class="input-fields" id="content" style="text-align: left;"> #{content}</div>
 	</div>
 </body>
-<script src="/add-post.js"></script>
 
 </html>

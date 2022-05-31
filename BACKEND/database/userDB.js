@@ -40,13 +40,15 @@ export async function verify_user_data(name, mail, username, pwd, confirm_pwd) {
 	return true;
 }
 
-export async function verify_login(info, pwd) {
-	let with_mail = await user.findOne({ mail: info });
+export async function verify_login(info, pwd, name = true) {
+	let with_mail;
+	if (name) with_mail = await user.findOne({ mail: info });
 	let with_username = await user.findOne({ username: info });
 
-	if (with_mail != null) {
+	if (with_mail != null && with_mail != undefined) {
 		if (with_mail.password === pwd) return true;
-	} else if (with_username != null) {
+	}
+	else if (with_username != null) {
 		if (with_username.password === pwd) return true;
 	}
 	return false;

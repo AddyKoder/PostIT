@@ -102,3 +102,11 @@ input[type="submit"]{
 input[type="submit"]:hover{
 	cursor: pointer;
 }
+
+.post-title:hover, .post-description:hover{
+	cursor: pointer;
+}
+
+#logo:hover, #user-profile-button:hover{
+	cursor: pointer;
+}

@@ -119,3 +119,7 @@ hr{
 .post-title:hover, .post-description:hover{
 	cursor: pointer;
 }
+
+#logo:hover, #user-profile-button:hover{
+	cursor: pointer;
+}

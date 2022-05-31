@@ -54,5 +54,7 @@ async function add_event_listeners() {
 	};
 }
 
+document.getElementById('username-logo').innerHTML = username_mail;
+
 check_logins();
 add_event_listeners();

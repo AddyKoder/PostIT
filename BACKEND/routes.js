@@ -83,7 +83,7 @@ router.post('/login', urlencoded, async (req, res) => {
 	let password = req.body.password;
 	let username_mail = req.body.username_email;
 
-	if (await user.verify_login(username_mail, password)) {
+	if (await user.verify_login(username_mail, password, false)) {
 		res.cookie('username_mail', username_mail, {
 			maxAge: 1000 * 60 * 60 * 24,
 		});

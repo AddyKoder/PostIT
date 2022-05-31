@@ -23,6 +23,6 @@ app.use('/', express.static(p.join(__dirname, './FRONTEND/static')));
 
 app.use(error);
 
-app.listen(80, () => {
+app.listen(process.env.PORT || 80, () => {
 	console.log('app started');
 });

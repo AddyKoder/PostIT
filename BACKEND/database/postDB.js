@@ -7,7 +7,7 @@ const params = {
 	useUnifiedTopology: true,
 };
 
-mongoose.connect('mongodb://localhost:27017/posty', params);
+mongoose.connect('mongodb+srv://posty:posty-password@cluster0.lfawf.mongodb.net/posty?authSource=admin&replicaSet=atlas-12xysz-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true', params);
 
 export const postSchema = mongoose.Schema({
 	title: { type: String, required: true },

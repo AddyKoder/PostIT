@@ -27,6 +27,7 @@ function plot_info() {
 
 async function place_feed(feeds) {
 	let html_content = '';
+	id('headline').innerText = 'Your Feed - Loading...';
 	for (let i of feeds) {
 		let post = await fetch(`../../get-post?id=${i._id}`);
 		let post_string = await post.text();
@@ -42,6 +43,8 @@ async function place_feed(feeds) {
 	</div>`;
 		document.getElementById('posts').innerHTML = html_content;
 	}
+	id('headline').innerText = 'Your Feed';
+
 	add_event_listeners(feeds);
 }
 

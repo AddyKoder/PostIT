@@ -40,8 +40,8 @@ async function place_feed(feeds) {
 		<div  class="post-title ${post._id}" style="font-size:clamp(1rem, 10vw, 2rem); margin-bottom: 5px;">${post.title.slice(0, 10)}</div>
 		<div class="post-description ${post._id}" style="font-size:clamp(0.5rem, 5vw, 1rem);">${post.content.slice(0, 90) + '...'}</div>
 	</div>`;
+		document.getElementById('posts').innerHTML = html_content;
 	}
-	document.getElementById('posts').innerHTML = html_content;
 	add_event_listeners(feeds);
 }
 

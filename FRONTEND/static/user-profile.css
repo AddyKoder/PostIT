@@ -91,8 +91,13 @@ hr{
 	background-color: #7175ee;
 	box-shadow: #050a42 4px 4px 20px 0.2px;
 
-	width: 200px;
-	height: 200px;
+	max-width: 200px;
+	min-width: 50px;
+	width:50vw;
+	max-height: 200px;
+	min-height: 50px;
+	height: 50vw;
+	
 	flex-direction: column;
 	border-radius: 7px;
 	text-align: left;

@@ -7,7 +7,7 @@
   "scripts": {
 	  "test": "nodemon index.js",
 	  "start": "node index.js",
-	  "build": "npm install && npm run start",
+//	  "build": "npm install && npm run start",
 	  "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install && npm run build"
   },
   "repository": {
